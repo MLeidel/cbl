@@ -7,7 +7,7 @@
     argv 2 ==> leading characters of item to lookup (displays items info)
         or ==> "search" target (or just "s" for search)
 */
-#include <myc.h>
+#include "myc.h"
 
 #define CLR "\033[33;1m"  // bright: Yellow 33 | Purple 35 | Red 31
 #define DEF "\033[0m\n"   // reset to default color
