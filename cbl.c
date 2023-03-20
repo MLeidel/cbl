@@ -5,6 +5,7 @@
     no args => lists your cbl text files
     argv 1 ==> basename of text file (displays files item names)
     argv 2 ==> leading characters of item to lookup (displays items info)
+        or ==> "search" target (or just "s" for search)
 */
 #include <myc.h>
 
@@ -31,6 +32,25 @@ void listfiles() {
     puts(DEF);
 }
 
+/* This function finds a piece of text in a specified cbl text file.
+Print out every item title and line where the text is found.
+$> cbl file.txt (s)earch TARGET */
+void searchfile(list a, char *target) {
+    FILE * fh = open_for_read(src);
+    puts("\n");
+    while(!feof(fh)) {
+        fgets(line, 1000, fh);
+        if (contains(line, "^_^")) {
+            list_split(a, line, " ");
+            strncpy(cbl_item, a.item[0], 60);  // the current item in file
+            continue;
+        }
+        if (contains(line, target)) {
+            printf("[%s%s] %s%s", CLR, cbl_item, line, DEF);
+        }
+    } // while loop
+    fclose(fh);
+}
 
 void main (int argc, char *argv[]) {
 
@@ -67,8 +87,14 @@ void main (int argc, char *argv[]) {
             list_del(aname);
             fclose(fh);
             exit(EXIT_SUCCESS);
-        } else {
-            strncpy(cbl_item, argv[2], 60);  // find item and display info
+        } else {                // argc is 3 or 4
+            if (argc == 3) {   // find item and display info
+                strncpy(cbl_item, argv[2], 60);  // fall through
+            } else {            // argc is 4 (search is implied!)
+                searchfile(aname, argv[3]);  // find argv[3] in file
+                list_del(aname);
+                exit(EXIT_SUCCESS);
+            }
         }
     }
 
