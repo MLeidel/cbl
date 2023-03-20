@@ -1,0 +1,616 @@
+tkinter.txt
+
+bootstrap ^_^
+
+# bootstrap themes and styles
+# ===========================
+
+# Light Themes:
+#     'cosmo'
+#     'flatly'
+#     'litera'
+#     'minty'
+#     'lumen'
+#     'sandstone'
+#     'yeti'
+#     'pulse'
+#     'united'
+#     'morph'
+#     'journal'
+#     'simplex'
+#     'cerculean'
+# Dark Themes:
+#     'darkly'
+#     'superhero'
+#     'solar'
+#     'cyborg'
+#     'vapor'
+
+# bootstyle='primary'
+# bootstyle=(PRIMARY, OUTLINE)
+# bootstyle='round-toggle'
+# bootstyle='success-square-toggle'
+# bootstyle='outline-toolbutton'
+# bootstyle='success-outline-toolbutton'
+
+#     primary
+#     secondary
+#     success
+#     info
+#     warning
+#     danger
+#     light
+#     dark
+
+button ^_^
+
+command : default : takefocus : text : textvariable
+underline : width : image : compound : padding : state
+cursor : style : class
+button1 = Button(root, text='Button', command=func)
+button1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+checkbutton ^_^
+
+variable : onvalue : offvalue : command : takefocus
+text : textvariable : underline : width : image
+compound : padding : state : cursor : style : class
+self.c4 = IntVar()
+chkb4 = Checkbutton(self, variable=self.c4,
+                    text='Female', width=8,
+                    bootstyle='info')
+chkb4.grid(row=0, column=0)
+# other checkbutton styles:
+# bootstyle='toolbutton'
+# bootstyle='info-toolbutton'
+# bootstyle='outline-toolbutton'
+# bootstyle='round-toggle'
+# bootstyle='info-round-toggle'
+# bootstyle='square-toggle'
+
+clipboard ^_^
+
+# CLIPBOARD HANDLING
+# # import pyperclip
+# pyperclip.copy(string)
+# string = pyperclip.paste()
+#
+# # Or just use tkinter.clipboard
+# root.clipboard_clear()  # clear clipboard contents
+# root.clipboard_append(string)  # append new value to clipbaord
+# root.update()
+# root.clipboard_get()
+# # # # # # # # # # # #
+
+    def function(self, n):
+        ''' Routes query Text context menu actions '''
+        if n == 1:  # Copy
+            root.clipboard_clear()  # clear clipboard contents
+            if self.query.tag_ranges('sel'):
+                root.clipboard_append(self.query.selection_get())
+        elif n == 2:  # Paste
+            inx = self.query.index(INSERT)
+            try:
+                self.query.insert(inx, root.clipboard_get())
+            except Exception as e:
+                return
+        elif n == 3:  # Select All
+            self.query.focus()
+            self.query.tag_add(SEL, '1.0', END)
+            self.query.mark_set(INSERT, '1.0')
+            self.query.see(INSERT)
+        elif n == 4:  # larger
+            pass
+        elif n == 5:  # smaller
+            pass
+
+combobox ^_^
+
+height : postcommand : values : exportselection
+font : invalidcommand : justify : show : state
+textvariable : validate : validatecommand : width
+xscrollcommand : foreground : background : takefocus
+cursor : style : class
+self.vcmbo = StringVar()
+cmbo = Combobox(self, textvariable=self.vcmbo)
+cmbo['values'] = ('value1', 'value2', 'value3')
+# COMBO.bind('<<ComboboxSelected>>', self.ONCOMBOSELECT)
+cmbo.current(0)
+cmbo.grid(row=0, column=0)
+
+entry ^_^
+
+exportselection : font : invalidcommand : justify
+show : state : textvariable : validate : validatecommand
+width : xscrollcommand : foreground : background
+takefocus : cursor : style : class
+var = StringVar()
+entry1 = Entry(root, textvariable=var)
+entry1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+filedialog ^_^
+
+# from tkinter import filedialog
+# filename =  filedialog.askopenfilename(initialdir='/',
+#             title = 'Open file',
+#             filetypes = (('jpeg files', '*.jpg'),('all files', '*.*')))
+# filename = filedialog.asksaveasfilename(initialdir='/',
+#             title = 'Save file',
+#             filetypes = (('jpeg files', '*.jpg'), ('all files', '*.*')))
+
+frame ^_^
+
+borderwidth : padding : relief : width : height
+takefocus : cursor : style : class
+frame1 = Frame(root)
+frame1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+grid ^_^
+
+# w.grid(options ...)
+
+# column
+# columnspan
+# ipadx, ipady
+# padx, pady
+# row
+# rowspan
+# sticky  # N, E, S, W, NE, NW, SE, and SW";
+
+label ^_^
+
+background : foreground : font : borderwidth
+relief : anchor : justify : wraplength : takefocusn
+text : textvariable : underline : width : imagen
+compound : padding : state : cursor : style : class
+var = StringVar()
+label1 = Label(root, text='Label', textvariable=var)
+label1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+listbox ^_^
+
+activestyle : background : bd : bg : borderwidth
+cursor : disabledforeground : exportselection : fg
+font : foreground : height : highlightbackground
+highlightcolor : highlightthickness : justify
+relief : selectbackground : selectborderwidth
+selectforeground : selectmode : setgrid : state
+takefocus : width : xscrollcommand : yscrollcommand
+listvariable\
+self.lst = Listbox(self, exportselection=False)
+self.lst.grid(row=0, column=0)
+
+# self.LISTBOX.bind('<<ListboxSelect>>', self.on_select_list)
+# for i in range(100):
+#     self.LISTBOX.insert(END, 'Item ' + str(i))
+
+# HANDLER FOR LIST SELECTION
+# def on_select_list(self, event):
+#     list_item = self.LISTBOX.get(ANCHOR)
+#     list_inx = self.LISTBOX.index(ANCHOR)
+#     print(list_item, str(list_inx) +
+#           ' of ' + str(self.LISTBOX.size()))
+#
+# HANDLERS FOR EDITING LISTBOX
+#
+# def delete_item(self):
+#     if self.LISTBOX.curselection() == ():
+#         return  # nothing selected
+#     print('Deleting: ' + self.LISTBOX.get(ANCHOR))
+#     self.LISTBOX.delete(self.LISTBOX.index(ANCHOR))
+#
+# def insert_item(self):
+#     if self.LISTBOX.curselection() == ():
+#         return  # nothing selected
+#     list_item = self.LISTBOX.get(ANCHOR)
+#     list_inx = self.LISTBOX.index(ANCHOR)
+#     self.LISTBOX.insert(list_inx, 'Inserted this')
+#     print('inserted at ' + str(list_inx))
+
+menu ^_^
+
+    # Create menu
+    menu_bar = tk.Menu(root)
+
+    # Create file menu
+    file_menu = tk.Menu(menu_bar, tearoff=False)
+    file_menu.add_command(label='New', command=lambda: text_box.delete('1.0', tk.END))
+    file_menu.add_command(label='Open', command=lambda: open_file())
+    file_menu.add_command(label='Save', command=lambda: save_file())
+    file_menu.add_separator()
+    file_menu.add_command(label='Exit', command=lambda: root.destroy())
+
+    # Create edit menu
+    edit_menu = tk.Menu(menu_bar, tearoff=False)
+    edit_menu.add_command(label='Undo', command=lambda: text_box.edit_undo())
+    edit_menu.add_command(label='Redo', command=lambda: text_box.edit_redo())
+    edit_menu.add_separator()
+    edit_menu.add_command(label='Cut', command=lambda: text_box.event_generate('<Control-x>'))
+    edit_menu.add_command(label='Copy', command=lambda: text_box.event_generate('<Control-c>'))
+    edit_menu.add_command(label='Paste', command=lambda: text_box.event_generate('<Control-v>'))
+    edit_menu.add_separator()
+    edit_menu.add_command(label='Syntax Highlighting', command=syntax_highlight)
+
+    # Create view menu
+    view_menu = tk.Menu(menu_bar, tearoff=False)
+    view_menu.add_command(label='Increase Font Size', command=lambda: increase_font())
+    view_menu.add_command(label='Decrease Font Size', command=lambda: decrease_font())
+
+    # Add menus to menu bar
+    menu_bar.add_cascade(label='File', menu=file_menu)
+    menu_bar.add_cascade(label='Edit', menu=edit_menu)
+    menu_bar.add_cascade(label='View', menu=view_menu)
+
+    # Add menu bar to main window
+    root.config(menu=menu_bar)
+
+message ^_^
+
+anchor : aspect : background : bd : bg : borderwidth
+cursor : fg : font : foreground : highlightbackground
+highlightcolor : highlightthickness : justify : padx
+pady : relief : takefocus : text : textvariable : width\
+message1 = Message(root, text='Message')
+message1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+msgbox ^_^
+
+# from tkinter import messagebox
+# messagebox.showerror('Error', 'Error message')
+# messagebox.showwarning('Warning', 'Warning message')
+# messagebox.showinfo('Information', 'Informative message')
+# messagebox.askokcancel('Message title', 'Message content')
+# messagebox.askretrycancel('Message title', 'Message content')
+#     ok, yes, retry returns TRUE
+#     no, cancel returns FALSE
+
+notebook ^_^
+
+width : height : padding : takefocus
+cursor : style : class
+notebook1 = tNotebook(root)
+notebook1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+
+    strcat(src, "/tkauto_tpl.py");
+    getbasepath(__FILE__, buff);
+    concat(dest, buff, "/temp.py", END);
+    puts("created temp.py");
+    filecopy(src, dest);
+
+    strcat(src, "/tkbauto_tpl.py");
+    getbasepath(__FILE__, buff);
+    concat(dest, buff, "/temp.py", END);
+    puts("created temp.py");
+    filecopy(src, dest);
+
+optionmenu ^_^
+
+menu : direction : takefocus : text : textvariable
+underline : width : image : compound : padding
+state : cursor : style : class
+optionlist = ('aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
+self.vopts = StringVar()
+self.vopts.set(optionlist[0])
+opts = OptionMenu(self, self.vopts, *optionlist)
+opts.grid(row=0, column=0)
+
+pack ^_^
+
+# w.pack(options ...)
+
+# side    RIGHT|LEFT|TOP|BOTTOM
+# fill    x|y
+# anchor  NW N NE W CENTER E SW S SE
+# padx    External padding, horizontally
+# pady    External padding, vertically
+# ipadx   Internal padding, horizontally
+# ipady   Internal padding, vertically";
+
+panedwindow ^_^
+
+orient : width : height : takefocus
+cursor : style : class
+panedwindow1 = PanedWindow(root)
+panedwindow1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+popup ^_^
+
+self.popup_menu = Menu(self, tearoff=0)
+self.popup_menu.add_command(label='Copy',
+                            command=lambda:self.function(1))
+self.popup_menu.add_command(label='Paste',
+                            command=lambda:self.function(2))
+self.popup_menu.add_separator()
+self.popup_menu.add_command(label='say bye', command=exit)
+self.txt.bind('<Button-3>', self.do_popup)
+
+    def do_popup(self,event):
+        try:
+            self.popup_menu.tk_popup(event.x_root,
+                                     event.y_root)
+        finally:
+            self.popup_menu.grab_release()
+
+progressbar ^_^
+
+prgb = Progressbar(self, orient='horizontal', mode='indeterminate', maximum=20 )
+prgb.grid(row=0, column=0)
+# prgb.start() | prgb.stop() | prgb.grid_forget() | prgb.grid(self, ...)";
+
+radiobutton ^_^
+
+variable : value : command : takefocus : text
+textvariable : underline : width : image
+compound : padding : state : cursor : style : class
+radiobutton1 = Radiobutton(root, text='Radiobutton')
+radiobutton1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+scale ^_^
+
+command : variable : orient : from : to : value
+length : state : takefocus : cursor : style : class
+scale1 = Scale(root, orient='horizontal')
+scale1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+scrollbar ^_^
+
+command : orient : takefocus : cursor : style : class
+self.scrollY = Scrollbar(self, orient=VERTICAL, command=self.tex.yview)
+self.scrollY.grid(row=0, column=0, rowspan=0, sticky=N+S+W)
+self.tex['yscrollcommand'] = self.scrollY.set";
+
+separator ^_^
+
+sep = Separator(self)
+sep.grid(row=0, column=0)";
+
+simpledialog ^_^
+
+# # from tkinter import simpledialog
+# simpledialog.askfloat(title, prompt)
+# simpledialog.askinteger(title, prompt)
+# simpledialog.askstring(title, prompt)
+# 'if' answer is not None:
+
+spinbox ^_^
+
+values : from : to : increment : format : command
+wrap : exportselection : font : invalidcommand
+justify : show : state : textvariable : validate
+validatecommand : width : xscrollcommand
+foreground : background : takefocus : cursor
+style : class
+spinbox1 = Spinbox(root)
+spinbox1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
+
+text ^_^
+
+autoseparators : background : bd : bg : blockcursor
+borderwidth : cursor : endline : exportselection
+fg : font : foreground : height : highlightbackground
+highlightcolor : highlightthickness
+inactiveselectbackground : insertbackground
+insertborderwidth : insertofftime : insertontime
+insertunfocussed : insertwidth : maxundo : padx : pady
+relief : selectbackground : selectborderwidth
+selectforeground : setgrid : spacing1 : spacing2
+spacing3 : startline : state : tabs : tabstyle
+takefocus : undo : width : wrap
+xscrollcommand : yscrollcommand
+EDITOR = Text(root)
+# self.EDITOR.config(wrap='word', # wrap=NONE
+#                    undo=True, # Tk 8.4
+#                    width=50,
+#                    height=12,
+#                    padx=5, # inner margin
+#                    insertbackground='#000',   # cursor color
+#                    tabs=(efont.measure(' ' * 4),))
+# self.sbar = Scrollbar(self, orient=VERTICAL, command=(self.EDITOR.yview))
+# self.sbar.grid(row=1, column=4, sticky=(N + S + W))
+# self.EDITOR['yscrollcommand'] = self.sbar.set
+    # self.EDITOR.focus()
+    ## basic Text widget commands #
+    # .get('1.0', END)
+    # .delete('1.0', END)
+    # .insert('1.0', 'New text content ...')
+    ## Select All
+    # .tag_add(SEL, '1.0', END)
+    # .mark_set(INSERT, '1.0')
+    # .see(INSERT)
+
+toplevel ^_^
+
+def create_window(self):
+    t = Toplevel(self)
+    t.wm_title('Toplevel')
+    t.geometry('200x100') # WxH+left+top
+    l = Label(t, text='This is a Toplevel Window')
+    l.grid(row=0, column=0, padx=2, pady=20)
+    tvbtn = Button(t, text=' Exit ', command=t.destroy)
+    tvbtn.grid(row=0, column=0, sticky='w', padx=2, pady=4)
+
+ttk ^_^
+
+from tkinter import *
+from tkinter.ttk import *  # defaults all widgets as ttk
+import os, sys
+from tkinter.font import Font
+# from tkcalendar import *
+# from time import gmtime, strftime
+# import sys
+# import webbrowser
+# import pyperclip
+# from tkinter import filedialog
+# from tkinter import messagebox
+# from tkinter import simpledialog
+# from functools import partial # action_w_arg = partial(self.proc_btns, n)
+from ttkthemes import ThemedTk  # ttkthemes is applied to all widgets
+
+class Application(Frame):
+    ''' main class docstring '''
+    def __init__(self, parent):
+        Frame.__init__(self, parent)
+        self.pack(fill=BOTH, expand=True, padx=4, pady=4)
+        self.create_widgets()
+
+    def create_widgets(self):
+        ''' creates GUI for app '''
+        # expand widget to fill the grid
+        # self.columnconfigure(1, weight=1, pad=100)
+        # self.rowconfigure(1, weight=1, pad=20)
+
+        # myfont = Font(family='Lucida Console', weight = 'bold', size = 20)
+
+        # customize widget style when using ttk...
+        # style = Style()
+        # style.configure("TButton", width=10) # global
+        # style.configure("my.TButton", width=10) # 'style' option
+
+        ''' ONLY OPTIONS FOR 'grid':
+                column  row
+                columnspan  rowspan
+                ipadx and ipady
+                padx and pady
+                sticky="nsew"
+        -------------------------------------------------------- '''
+
+    # INSERT TKAUTO OUTPUT BELOW HERE
+
+    # def eventHandler(self):
+    #     pass
+
+    # def eventHandler(self):
+    #     pass
+
+#
+
+# UNCOMMENT THE FOLLOWING TO SAVE GEOMETRY INFO
+# def save_location(e=None):
+#     ''' executes at WM_DELETE_WINDOW event - see below '''
+#     with open("winfo", "w") as fout:
+#         fout.write(root.geometry())
+#     root.destroy()
+
+# ttkthemes
+# 'alt', 'scidsand', 'classic', 'scidblue',
+# 'scidmint', 'scidgreen', 'default', 'scidpink',
+# 'arc', 'scidgrey', 'scidpurple', 'clam', 'smog'
+# 'kroc', 'black', 'clearlooks'
+# 'radiance', 'blue' : https://wiki.tcl-lang.org/page/List+of+ttk+Themes
+# for Windows "light" use "vista"
+root = ThemedTk(theme="radiance")
+
+# change working directory to path for this file
+p = os.path.realpath(__file__)
+os.chdir(os.path.dirname(p))
+
+# UNCOMMENT THE FOLLOWING TO SAVE GEOMETRY INFO
+# if os.path.isfile("winfo"):
+#     with open("winfo") as f:
+#         lcoor = f.read()
+#     root.geometry(lcoor.strip())
+# else:
+#     root.geometry("400x300") # WxH+left+top
+
+
+root.title("Tkinter Temp")
+# root.protocol("WM_DELETE_WINDOW", save_location)  # UNCOMMENT TO SAVE GEOMETRY INFO
+# Sizegrip(root).place(rely=1.0, relx=1.0, x=0, y=0, anchor=SE)
+# root.resizable(0, 0) # no resize & removes maximize button
+# root.minsize(w, h)  # width, height
+# root.maxsize(w, h)
+# root.overrideredirect(True) # removed window decorations
+# root.iconphoto(False, PhotoImage(file='icon.png'))
+# root.attributes("-topmost", True)  # Keep on top of other windows
+app = Application(root)
+app.mainloop()
+
+ttkboot ^_^
+
+import os, sys
+from tkinter.font import Font
+from ttkbootstrap import *
+from ttkbootstrap.constants import *
+# from tkinter import Listbox
+# from tkinter import filedialog
+# from tkinter import messagebox
+# from tkinter import simpledialog
+# import webbrowser
+# from ttkbootstrap.tooltip import ToolTip
+# from ttkbootstrap.dialogs import Querybox  # get_date, get_font ...
+# from functools import partial # action_w_arg = partial(self.proc_btns, n)
+# from time import gmtime, strftime
+
+class Application(Frame):
+    ''' main class docstring '''
+    def __init__(self, parent):
+        Frame.__init__(self, parent)
+        self.pack(fill=BOTH, expand=True, padx=4, pady=4)
+        self.create_widgets()
+
+    def create_widgets(self):
+        ''' creates GUI for app '''
+        # expand widget to fill the grid
+        # self.columnconfigure(1, weight=1, pad=100)
+        # self.rowconfigure(1, weight=1, pad=20)
+
+        # myfont = Font(family='Lucida Console', weight = 'bold', size = 20)
+
+        ''' ONLY OPTIONS FOR 'grid' FUNCTIONS:
+                column  row
+                columnspan  rowspan
+                ipadx and ipady
+                padx and pady
+                sticky="nsew"
+        -------------------------------------------------------- '''
+
+    # INSERT TKAUTO OUTPUT BELOW HERE
+
+    # def eventHandler(self):
+    #     pass
+
+    # def eventHandler(self):
+    #     pass
+#
+
+
+# change working directory to path for this file
+p = os.path.realpath(__file__)
+os.chdir(os.path.dirname(p))
+
+# THEMES
+# 'cosmo', 'flatly', 'litera', 'minty', 'lumen',
+# 'sandstone', 'yeti', 'pulse', 'united', 'morph',
+# 'journal', 'darkly', 'superhero', 'solar', 'cyborg',
+# 'vapor', 'simplex', 'cerculean'
+root = Window("template", "superhero", size=(400, 400))
+
+# UNCOMMENT THE FOLLOWING TO SAVE GEOMETRY INFO
+# def save_location(e=None):
+#     ''' executes at WM_DELETE_WINDOW event - see below '''
+#     with open("winfo", "w") as fout:
+#         fout.write(root.geometry())
+#     root.destroy()
+
+# UNCOMMENT THE FOLLOWING TO SAVE GEOMETRY INFO
+# if os.path.isfile("winfo"):
+#     with open("winfo") as f:
+#         lcoor = f.read()
+#     root.geometry(lcoor.strip())
+# else:
+#     root.geometry("400x300") # WxH+left+top
+
+
+# root.protocol("WM_DELETE_WINDOW", save_location)  # UNCOMMENT TO SAVE GEOMETRY INFO
+Sizegrip(root).place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+# root.resizable(0, 0) # no resize & removes maximize button
+# root.minsize(w, h)  # width, height
+# root.maxsize(w, h)
+# root.overrideredirect(True) # removed window decorations
+# root.iconphoto(False, PhotoImage(file='icon.png'))
+# root.attributes("-topmost", True)  # Keep on top of other windows
+
+Application(root)
+
+root.mainloop()
