@@ -1,5 +1,5 @@
 # cbl
-Console Based note &amp; clip-it Lookup &amp; retrieval
+__Console Based note &amp; snip-it Lookup &amp; retrieval__
 
 Uses text files to organize text information by File and Topic.
 
@@ -10,8 +10,8 @@ files can be stored, updated, and deleted.
 
 Setup also copies executable to system directory (admin required)
 
-Open _tkinter.txt_ for example of a clip file. Notice the ^_^  
-syntax to delimate each topic/title.
+Open _tkinter.txt_ for example of a `cbl` text file.  
+Notice the ^_^ syntax to delimate each topic/title.
 
 ## Usage
 
