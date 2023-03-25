@@ -6,6 +6,7 @@ else
     echo ".config/cbl directory does not exist, creating..."
     mkdir "/home/$USER/.config/cbl"
     echo "place your cbl text files in .config/cbl/..."
+    cp editor "/home/$USER/.config/cbl/"
 fi
 
 sudo cp -fv cbl "/usr/local/bin"
