@@ -10,24 +10,30 @@ files can be stored, updated, and deleted.
 
 Setup also copies executable to system directory (admin required)
 
-Open _tkinter.txt_ for example of a `cbl` text file.  
+_tkinter.txt_ is provided for an example of a 'cbl' text file.  
 Notice the ^_^ syntax to delimate each topic/title.
 
 ## Usage
 
 display all cbl text files:  
-`cbl`
+> `cbl`
 
 display all topics in paricular text file:  
-`cbl tkinter`
+> `cbl tkinter`
 
 display topic info from particular text file:  
-`cbl tkinter spinbutton`
+> `cbl tkinter spinbutton`
 
 search all topics in particular text file for some text:  
-`cbl tkinter search "<Control-a"`
->Note: s sea search all the same
+> `cbl tkinter search "<Control-a"`  
+Note: s sea search all the same
 
+edit the cbl text file:  
+> `cbl tkinter e`  
+launches your text editor with the cbl text file  
 
-
+The 'cbl' files directory is located at:  
+`/home/USER/.config/cbl` for Linux  
+and  
+`HOME\cbl` for Windows
 
