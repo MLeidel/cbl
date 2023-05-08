@@ -33,6 +33,7 @@ void listfiles() {
             printf("  %s\n", d.item[x]);
         }
     }
+    puts("\nUSAGE:\ncbl\ncbl file\ncbl file topic\ncbl file s text\ncbl file e");
     list_del(d);
     puts(DEF);
 }
