@@ -102,7 +102,7 @@ void main (int argc, char *argv[]) {
                         printf("%s%s%s", SYS, "Missing 'editor' file!", DEF);
                         exit(EXIT_FAILURE);
                     } else {
-                        concat(chomp(line), " ", src, END);
+                        concat(chomp(line), " ", src, " &", END);
                         system(line);
                         exit(EXIT_SUCCESS);
                     }
