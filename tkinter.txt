@@ -1,6 +1,6 @@
 tkinter.txt
 
-bootstrap ^_^
+bootstrap =-=
 
 # bootstrap themes and styles
 # ===========================
@@ -42,7 +42,7 @@ bootstrap ^_^
 #     light
 #     dark
 
-button ^_^
+button =-=
 
 command : default : takefocus : text : textvariable
 underline : width : image : compound : padding : state
@@ -50,7 +50,7 @@ cursor : style : class
 button1 = Button(root, text='Button', command=func)
 button1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-checkbutton ^_^
+checkbutton =-=
 
 variable : onvalue : offvalue : command : takefocus
 text : textvariable : underline : width : image
@@ -68,7 +68,7 @@ chkb4.grid(row=0, column=0)
 # bootstyle='info-round-toggle'
 # bootstyle='square-toggle'
 
-clipboard ^_^
+clipboard =-=
 
 # CLIPBOARD HANDLING
 # # import pyperclip
@@ -104,7 +104,7 @@ clipboard ^_^
         elif n == 5:  # smaller
             pass
 
-combobox ^_^
+combobox =-=
 
 height : postcommand : values : exportselection
 font : invalidcommand : justify : show : state
@@ -118,7 +118,7 @@ cmbo['values'] = ('value1', 'value2', 'value3')
 cmbo.current(0)
 cmbo.grid(row=0, column=0)
 
-entry ^_^
+entry =-=
 
 exportselection : font : invalidcommand : justify
 show : state : textvariable : validate : validatecommand
@@ -128,7 +128,7 @@ var = StringVar()
 entry1 = Entry(root, textvariable=var)
 entry1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-filedialog ^_^
+filedialog =-=
 
 # from tkinter import filedialog
 # filename =  filedialog.askopenfilename(initialdir='/',
@@ -138,14 +138,14 @@ filedialog ^_^
 #             title = 'Save file',
 #             filetypes = (('jpeg files', '*.jpg'), ('all files', '*.*')))
 
-frame ^_^
+frame =-=
 
 borderwidth : padding : relief : width : height
 takefocus : cursor : style : class
 frame1 = Frame(root)
 frame1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-grid ^_^
+grid =-=
 
 # w.grid(options ...)
 
@@ -157,7 +157,7 @@ grid ^_^
 # rowspan
 # sticky  # N, E, S, W, NE, NW, SE, and SW";
 
-label ^_^
+label =-=
 
 background : foreground : font : borderwidth
 relief : anchor : justify : wraplength : takefocusn
@@ -167,7 +167,7 @@ var = StringVar()
 label1 = Label(root, text='Label', textvariable=var)
 label1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-listbox ^_^
+listbox =-=
 
 activestyle : background : bd : bg : borderwidth
 cursor : disabledforeground : exportselection : fg
@@ -207,7 +207,7 @@ self.lst.grid(row=0, column=0)
 #     self.LISTBOX.insert(list_inx, 'Inserted this')
 #     print('inserted at ' + str(list_inx))
 
-menu ^_^
+menu =-=
 
     # Create menu
     menu_bar = tk.Menu(root)
@@ -244,7 +244,7 @@ menu ^_^
     # Add menu bar to main window
     root.config(menu=menu_bar)
 
-message ^_^
+message =-=
 
 anchor : aspect : background : bd : bg : borderwidth
 cursor : fg : font : foreground : highlightbackground
@@ -253,7 +253,7 @@ pady : relief : takefocus : text : textvariable : width\
 message1 = Message(root, text='Message')
 message1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-msgbox ^_^
+msgbox =-=
 
 # from tkinter import messagebox
 # messagebox.showerror('Error', 'Error message')
@@ -264,7 +264,7 @@ msgbox ^_^
 #     ok, yes, retry returns TRUE
 #     no, cancel returns FALSE
 
-notebook ^_^
+notebook =-=
 
 width : height : padding : takefocus
 cursor : style : class
@@ -284,7 +284,7 @@ notebook1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
     puts("created temp.py");
     filecopy(src, dest);
 
-optionmenu ^_^
+optionmenu =-=
 
 menu : direction : takefocus : text : textvariable
 underline : width : image : compound : padding
@@ -295,7 +295,7 @@ self.vopts.set(optionlist[0])
 opts = OptionMenu(self, self.vopts, *optionlist)
 opts.grid(row=0, column=0)
 
-pack ^_^
+pack =-=
 
 # w.pack(options ...)
 
@@ -305,16 +305,16 @@ pack ^_^
 # padx    External padding, horizontally
 # pady    External padding, vertically
 # ipadx   Internal padding, horizontally
-# ipady   Internal padding, vertically";
+# ipady   Internal padding, vertically
 
-panedwindow ^_^
+panedwindow =-=
 
 orient : width : height : takefocus
 cursor : style : class
 panedwindow1 = PanedWindow(root)
 panedwindow1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-popup ^_^
+popup =-=
 
 self.popup_menu = Menu(self, tearoff=0)
 self.popup_menu.add_command(label='Copy',
@@ -332,13 +332,13 @@ self.txt.bind('<Button-3>', self.do_popup)
         finally:
             self.popup_menu.grab_release()
 
-progressbar ^_^
+progressbar =-=
 
 prgb = Progressbar(self, orient='horizontal', mode='indeterminate', maximum=20 )
 prgb.grid(row=0, column=0)
 # prgb.start() | prgb.stop() | prgb.grid_forget() | prgb.grid(self, ...)";
 
-radiobutton ^_^
+radiobutton =-=
 
 variable : value : command : takefocus : text
 textvariable : underline : width : image
@@ -346,26 +346,26 @@ compound : padding : state : cursor : style : class
 radiobutton1 = Radiobutton(root, text='Radiobutton')
 radiobutton1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-scale ^_^
+scale =-=
 
 command : variable : orient : from : to : value
 length : state : takefocus : cursor : style : class
 scale1 = Scale(root, orient='horizontal')
 scale1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-scrollbar ^_^
+scrollbar =-=
 
 command : orient : takefocus : cursor : style : class
 self.scrollY = Scrollbar(self, orient=VERTICAL, command=self.tex.yview)
 self.scrollY.grid(row=0, column=0, rowspan=0, sticky=N+S+W)
 self.tex['yscrollcommand'] = self.scrollY.set";
 
-separator ^_^
+separator =-=
 
 sep = Separator(self)
 sep.grid(row=0, column=0)";
 
-simpledialog ^_^
+simpledialog =-=
 
 # # from tkinter import simpledialog
 # simpledialog.askfloat(title, prompt)
@@ -373,7 +373,7 @@ simpledialog ^_^
 # simpledialog.askstring(title, prompt)
 # 'if' answer is not None:
 
-spinbox ^_^
+spinbox =-=
 
 values : from : to : increment : format : command
 wrap : exportselection : font : invalidcommand
@@ -384,7 +384,24 @@ style : class
 spinbox1 = Spinbox(root)
 spinbox1.grid(row=0, column=0) # ipadx= padx= sticky='nsew'
 
-text ^_^
+current_value = tk.StringVar(value=0)
+spin_box = ttk.Spinbox(
+    container,
+    from_=0,
+    to=30,
+    textvariable=current_value,
+    command=value_changed)
+
+current_value = tk.StringVar()
+spin_box = ttk.Spinbox(
+    root,
+    from_=0,
+    to=50,
+    values=(0, 10, 20, 30, 40, 50),
+    textvariable=current_value,
+    wrap=True)
+    
+text =-=
 
 autoseparators : background : bd : bg : blockcursor
 borderwidth : cursor : endline : exportselection
@@ -419,7 +436,7 @@ EDITOR = Text(root)
     # .mark_set(INSERT, '1.0')
     # .see(INSERT)
 
-toplevel ^_^
+toplevel =-=
 
 def create_window(self):
     t = Toplevel(self)
@@ -430,7 +447,7 @@ def create_window(self):
     tvbtn = Button(t, text=' Exit ', command=t.destroy)
     tvbtn.grid(row=0, column=0, sticky='w', padx=2, pady=4)
 
-ttk ^_^
+ttk =-=
 
 from tkinter import *
 from tkinter.ttk import *  # defaults all widgets as ttk
@@ -526,7 +543,7 @@ root.title("Tkinter Temp")
 app = Application(root)
 app.mainloop()
 
-ttkboot ^_^
+ttkboot =-=
 
 import os, sys
 from tkinter.font import Font

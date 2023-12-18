@@ -46,7 +46,7 @@ void searchfile(list a, char *target) {
     puts("");
     while(!feof(fh)) {
         fgets(line, 1000, fh);
-        if (contains(line, "^_^")) {
+        if (contains(line, "=-=")) {
             list_split(a, line, " ");
             strncpy(cbl_item, a.item[0], 60);  // the current item in file
             continue;
@@ -81,7 +81,7 @@ void main (int argc, char *argv[]) {
             FILE * fh = open_for_read(src);
             while(!feof(fh)) {
                 fgets(line, 1000, fh);
-                if (contains(line, "^_^")) {
+                if (contains(line, "=-=")) {
                     list_split(aname, line, " ");
                     printf(" %-16s  ", aname.item[0]);
                     cntx++;
@@ -119,10 +119,14 @@ void main (int argc, char *argv[]) {
     }
 
 
+    /*
+        print out topic information
+        $cbl file topic
+    */
     FILE * fh = open_for_read(src);
     while(!feof(fh)) {
         fgets(line, 1000, fh);
-        if (contains(line, "^_^")) {
+        if (contains(line, "=-=")) {
             if (output) {
                 exit(EXIT_SUCCESS);
             }
