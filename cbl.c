@@ -7,8 +7,10 @@
     argv 2 ==> leading characters of item to lookup (displays items info)
         or ==> "search" target file (or just "s" for search)
     argv 2 ==> "e" edit the target file
+    --------------
+    Dec 2023: added clipboard copy
 */
-#include "myc.h"
+#include <myc.h>
 
 #define SYS "\033[33;1m"   // bright: Yellow
 #define CLR "\033[34;1m"  // bright: blue
@@ -16,6 +18,7 @@
 
 char line[1024] = {'\0'};
 char src[1024]  = {'\0'};
+char cliptext[5000] = {'\0'}; // holds output for copy to clipboard
 char editor[64] = {'\0'};
 char cbl_item[64] = {'\0'};
 int output = 0;
@@ -120,24 +123,30 @@ void main (int argc, char *argv[]) {
 
 
     /*
-        print out topic information
+        print out topic information to console
+        and place into system clipboard also
         $cbl file topic
     */
     FILE * fh = open_for_read(src);
+
     while(!feof(fh)) {
         fgets(line, 1000, fh);
         if (contains(line, "=-=")) {
             if (output) {
+                cbcopy(cliptext);
                 exit(EXIT_SUCCESS);
             }
             list_split(aname, line, " ");
             if (startswith(aname.item[0], cbl_item)) {
                 printf("%s - %s%s", CLR, aname.item[0], DEF);
+                strcpy(cliptext, aname.item[0]);
+                strcat(cliptext, " \n");
                 output = 1;
             }
         } else {
             if (output) {
                 printf("%s%s%s", CLR, chomp(line), DEF);
+                concat(cliptext, chomp(line), " \n", END);
             }
         }
     }

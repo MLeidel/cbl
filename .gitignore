@@ -53,3 +53,5 @@ dkms.conf
 ###########
 getmd
 test/
+copy
+*.zip
