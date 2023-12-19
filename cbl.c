@@ -10,7 +10,7 @@
     --------------
     Dec 2023: added clipboard copy
 */
-#include <myc.h>
+#include "myc.h"
 
 #define SYS "\033[33;1m"   // bright: Yellow
 #define CLR "\033[34;1m"  // bright: blue

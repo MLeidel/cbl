@@ -11,7 +11,10 @@ files can be stored, updated, and deleted.
 Setup also copies executable to system directory (admin required)
 
 _tkinter.txt_ is provided for an example of a 'cbl' text file.  
-Notice the ^_^ syntax to delimate each topic/title.
+Notice the `=-=` syntax to delimate each topic/title.
+
+The text of a topic printed to the console is also placed in  
+the system clipboard.
 
 ## Usage
 
